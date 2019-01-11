@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+        <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+                <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+                <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+                <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+                <!-- <link rel="stylesheet" href="main.js"> -->
+                <title>PK HOME</title>
+                <style>
+                .page{
+                font-family: 'Kanit', sans-serif;
+                }
+                </style>
+            </head>
+
+<body>
+        
+        <ons-page>
+                <ons-toolbar>
+                    <div class="center">PK @HOME</div>
+                </ons-toolbar>
+        
+                <ons-tabbar swipeable position="auto">
+                    <ons-tab page="tab1.html" label="Login" icon="ion-home, material:md-home">
+                    </ons-tab>
+                    <ons-tab page="tab2.html" label="รายชื่อ" icon="md-settings" active-icon="md-face">
+                    
+                    </ons-tab>
+                </ons-tabbar>
+                </ons-page>
+        
+                <template id="tab1.html">
+                <ons-page id="Tab1">
+                <div style="text-align: center; margin-top: 30px;">
+                <ons-card>
+                <div style="text-align: center; margin-top: 30px;">
+                   <ons-input id="name" modifier="underbar" placeholder="Username" float></ons-input>
+                    <p style="margin-top: 30px;">
+                    
+                    <ons-input type="password" id="pass" modifier="underbar" placeholder="Password" float></ons-input>
+                  <div>
+                    <ons-button id="myBtn">Click</ons-button>
+                  </div>
+                </p>
+            </div>
+            </ons-card>
+            </ons-page>
+            </template>
+    
+    
+    
+            <template id="tab2.html">
+            <ons-page id="Tab2">
+            
+            <ons-list>
+                <ons-list-header>แสดงชื่อ</ons-list-header>
+                <ons-list-item></ons-list-item>
+                
+            
+            </ons-page>
+            </template>
+                
+                
+                
+
+    <script>
+        document.getElementById("myBtn").addEventListener("click", function(){
+        // document.getElementById("demo").innerHTML = "Hello World";
+        console.log("HELLO");
+});
+
+        // var showName = document.getElementById("name");
+        // var btn = document.getElementById("myBtn");
+
+        //     document.getElementById("myBtn").addEventListener("click", function() {
+        //     var ourRequest = new XMLHttpRequest();
+        //     ourRequest.open('GET', 'http://mba.bkksol.com/PK/getJSON.php?username='+document.getElementById("name").value);
+        //     ourRequest.onload = function () {
+        //         var ourData = JSON.parse(ourRequest.responseText);
+        //         console.log(ourData[0]);
+        //     };
+        //     ourRequest.send();
+            
+        // });
+
+        // function renderHTML(data) {
+        //     var htmlString = "test";
+        //     for (i = 0; i < data.length; i++) {
+        //         htmlString += "<p>" + data[i].name_id + "=" + data[i].name + "<p>";
+        //     }
+        //     showName.insertAdjacentHTML('beforeend', htmlString);
+        // }
+    </script>
+</body>
+
+</html>
