@@ -1,7 +1,7 @@
 <?php
 include "connect.php";
 
-$sql= "SELECT * FROM pk_home where name = '$_GET[name]";
+$sql= "SELECT * FROM pk_home where username = '$_GET[username]";
 $result = $conn->query($sql);
 
 if($result->num_rows > 0){
@@ -15,7 +15,7 @@ while($row = $result->fetch_assoc())
 //       "username" => $row['']
     
 //   );
-$row['key'] = $_GET[name];
+$row['key'] = $_GET[username];
 array_push($array,$row);
 }
 echo json_encode($array);

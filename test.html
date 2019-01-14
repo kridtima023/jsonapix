@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,95 +8,63 @@
     <title>Document</title>
 </head>
 
-<style>
-        body{
-            font-family: sans-serif;
-        }
-            .ajax-container{
-            width: 50%;
-            margin: 50px auto;
-        }
-        #btnAjaxCall{
-            height: 50px;
-            width: 120px;
-            border: none;
-            border-radius: 6px;
-            color: white;
-            background: #3498db;
-            outline: none;
-            font-size: 22px;
-            opacity: 0.7;
-            padding: 10px;
-        }
-        #btnAjaxCall:hover{
-            cursor: pointer;
-            opacity: 1;
-        }
-        .item-details{
-            margin-top: 10px;
-            border: 1px solid #ddd;
-            padding: 6px;
-        }
-    </style>
 
-<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous">
-</script>
 
 <body>
-    	<div class="ajax-container">
-                <input type="button" id="btnAjaxCall" value="Ajax Call" />
-                
-                <div class="display-data">
-                    
-                </div>
-            </div>
+    <div class="ajax-container">
+        <p>Name: <input type="text" id="test" value=""></p>
+        <button menu="btn" class="btn" title="submit" data-code-m="sbm.submit">Click</button>
+        <p id="pinlist"></p>
+    </div>
 </body>
 
 <script>
-  
-        var count = 0;
-        
-        $("#btnAjaxCall").click(function(){
-            fetchDataAndDisplay();
-        });
-        
-        function fetchDataAndDisplay(){
-            $.ajax({
-                url:"http://mba.bkksol.com/PK/getJSON.php",
-                method:"GET",
-                catch:false,
-                success: function(data){
-                    console.log(data);
-                }
-            // }).done(function(data){
-            //     var start = count > 0 ? 3 * count : count;
-            //     var end = start + 3;
-            //     var str = '';
-            //     for(var i=start; i<end; i++){
-            //         str += '<div class="item-details">' + 
-            //                 'Id = ' + data[i].name_id + '<br />' +
-            //                 'Name is= ' + data[i].name + '<br />' +
-            //                 '</div>';
-            //     }
-                
-            //     if(start == data.length){
-            //         count = 0;
-            //         $(".display-data").empty();
-            //         $(".display-data").append("List Traversed. Start over!");
-            //         return;
-            //     }
-                
-            //     count++;
-            //     $(".display-data").empty();
-            //     $(".display-data").append(str);
-            // })
-        });
-    };
-    </script>
+    $(document).ready(function () {
 
+        $(".btn").on('click'),
+            function () {
+                fetchDataAndDisplay();
+            }
+
+
+        function fetchDataAndDisplay() {
+            $(function () {
+                console.log('ready!')
+                $.ajax({
+
+                        //CP1. Complete Ajax Code to GET ALL pin data 
+                        url: 'http://mba.bkksol.com/PK/getJSON.php',
+                        type: 'GET',
+                        dataType: "json",
+                        // success: (data)=>addNewRow(data),
+
+                    })
+                    .done(function (data) {
+                        console.log(data + "teeeeeennnnnnnnn");
+                        addNewRow(data);
+
+                    });
+
+                function addNewRow(data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var row = '<tr><td><a href="view.html?id=' + "data[i].name_id " + '">' + data[i]
+                            .name_id + '</a></td><td>' + data[i].name +
+                            '</td><td><img  class="card-img-top"  src="' + data[i].password +
+                            '"></td><td>' +
+                            data[i].username + '</td><td>' + data[i].password + '</td><td>' + data[i].key +
+                            '</td></tr>';
+                        $('#pinlist').append(row);
+
+                    }
+                }
+            });
+        };
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
 
