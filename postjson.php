@@ -1,7 +1,7 @@
 <?php
 include "connect.php";
 
-$sql= "SELECT * FROM pk_home where username = '$_GET[username]";
+$sql= "INSERT INTO pk_home (name_id, name, username, password)";
 $result = $conn->query($sql);
 
 if($result->num_rows > 0){
